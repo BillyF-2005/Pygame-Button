@@ -1,9 +1,9 @@
 import pygame as pg
 pg.init()
-screen = pg.display.set_mode([1000]*2)
 
 class button():
-    def __init__(self,centerX,centerY,height,colour,text):
+    def __init__(self,screen,centerX,centerY,height,colour,text):
+        self.screen = screen
         self.centerX = centerX
         self.centerY = centerY
         self.height = height
@@ -26,8 +26,8 @@ class button():
         self.button = pg.rect.Rect([self.x,self.y,self.width,self.height])
         self.textX = self.x + 0.5 * self.width - 0.5 * self.textWidth
         self.textY = self.y + 0.5 * self.height - 0.5 * self.textHeight + 3
-        pg.draw.rect(screen, self.colourValue, self.button)
-        screen.blit(self.renderedText,[self.textX,self.textY])
+        pg.draw.rect(self.screen, self.colourValue, self.button)
+        self.screen.blit(self.renderedText,[self.textX,self.textY])
         
     def isPressed(self):
         self.pos = pg.mouse.get_pos()
