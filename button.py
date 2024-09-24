@@ -9,6 +9,7 @@ class button():
         self.height = height
         self.y = self.centerY - 0.5 * self.height
         self.colour = pg.Color(colour)
+        self.backColour = (self.colour[0]*0.25,self.colour[1]*0.25,self.colour[2]*0.25,self.colour[3]*0.25)
         self.colourValue = (self.colour[0],self.colour[1],self.colour[2],self.colour[3])
         self.text = text
         self.textColour = (255,255,255) 
@@ -23,6 +24,8 @@ class button():
         self.textHeight = self.renderedText.get_height()
         self.width = self.textWidth + 10
         self.x = self.centerX - 0.5 * self.width
+        self.backGround = pg.rect.Rect([self.x - 4, self.y - 4, self.width + 8, self.height + 8])
+        pg.draw.rect(self.screen, self.backColour,self.backGround)
         self.button = pg.rect.Rect([self.x,self.y,self.width,self.height])
         self.textX = self.x + 0.5 * self.width - 0.5 * self.textWidth
         self.textY = self.y + 0.5 * self.height - 0.5 * self.textHeight + 3
