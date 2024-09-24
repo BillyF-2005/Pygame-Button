@@ -24,7 +24,7 @@ class button():
         self.textHeight = self.renderedText.get_height()
         self.width = self.textWidth + 10
         self.x = self.centerX - 0.5 * self.width
-        self.backGround = pg.rect.Rect([self.x - 4, self.y - 4, self.width + 8, self.height + 8])
+        self.backGround = pg.rect.Rect([self.x - (self.height * (2/25)), self.y - (self.height * (2/25)), self.width + (self.height * (4/25)), self.height + (self.height * (4/25))])
         pg.draw.rect(self.screen, self.backColour,self.backGround)
         self.button = pg.rect.Rect([self.x,self.y,self.width,self.height])
         self.textX = self.x + 0.5 * self.width - 0.5 * self.textWidth
